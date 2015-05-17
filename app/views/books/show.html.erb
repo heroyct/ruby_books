@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Book:</strong>
-  <%= @book.book_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @book.name %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong>作者:</strong>
   <%= @book.author %>
 </p>
 
+<p>
+  <strong>出版日:</strong>
+  <%= @book.publish_time %>
+</p>
+
+<p>
+  <strong>人気度:</strong>
+  <%= @book.popular %>
+</p>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

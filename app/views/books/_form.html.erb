@@ -10,20 +10,32 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :book_id %><br>
-    <%= f.number_field :book_id %>
+  <div class="container">  
+    <div class="row">
+      <div class="col-md-4">
+      <%= f.label :name, "名前" %><br>
+      <%= f.text_field :name, class:"form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+    <%= f.label :author, "作者" %><br>
+    <%= f.text_field :author , class:"form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </div>
+  <div class="row">
+      <div class="col-md-2">
+    <%= f.label :publish_time, "出版日" %><br>
+    <%= f.text_field :publish_time , class:"form-control "%>
+  </div></div>
+<div class="row">
+      <div class="col-md-2">
+    <%= f.label :popular, "人気度" %><br>
+    <%= f.text_field :popular , class:"form-control" %>
+  </div></div>
+  <br/>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "新規作成", :class => "btn btn-primary" %>
+  </div>
   </div>
 <% end %>

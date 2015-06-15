@@ -14,11 +14,13 @@
 ActiveRecord::Schema.define(version: 20150515104041) do
 
   create_table "books", force: :cascade do |t|
-    t.integer  "book_id",    limit: 4
-    t.string   "name",       limit: 255
-    t.string   "author",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "book_id",      limit: 4
+    t.string   "name",         limit: 255
+    t.string   "author",       limit: 255
+    t.datetime "publish_time"
+    t.integer  "popular",      limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

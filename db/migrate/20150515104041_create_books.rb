@@ -4,6 +4,8 @@ class CreateBooks < ActiveRecord::Migration
       t.integer :book_id
       t.string :name
       t.string :author
+      t.datetime :publish_time
+      t.integer :popular
 
       t.timestamps null: false
     end

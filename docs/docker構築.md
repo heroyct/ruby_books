@@ -42,6 +42,14 @@ $ docker-compose exec app bash
 $ docker-compose --verbose up
 ```
 
+# 環境
+
+## 開発環境
+|名前|version|説明|
+| --- |---|---|
+ ruby|2.5.1||
+| rails |5.2.0||
+
 # 使い方
 ```
 # create images
@@ -53,10 +61,17 @@ $ docker-compose up -d
 
 # serverへ入る
 $ docker-compose exec app bash
+
+# start server
+$ bundle install --path vendor/bundle
+$ bundle exec rails s -b 0.0.0.0 -p 3010
 ```
 
 # TODO
 1. bookユーザーでサーバーへ入る
-1. add ruby
-1. add rails
-1. add bundle
+1. add mysql server
+1. appを分離する
+
+# 参考
+* [Dockerfileとdocker buildで CeontOS7 + システムワイドなrbenv + ruby のコンテナを作る]()https://qiita.com/okahashi117/items/8e021f990e7dbe684e74)
+

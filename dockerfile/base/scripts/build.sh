@@ -11,7 +11,7 @@ chown ${OPERATOR_UID}:${OPERATOR_GID} /www/ruby-book
 
 # install package
 yum update -y
-yum install -y git make gcc bzip2 openssl-devel readline-devel zlib-devel curl-devel mysql-devel which tar wget sudo
+yum install -y git make gcc bzip2 openssl-devel readline-devel zlib-devel curl-devel mysql-devel which tar wget sudo libmysqlclient-dev
 
 # install rbenv ruby-build
 git clone git://github.com/sstephenson/rbenv.git /usr/local/rbenv

@@ -33,7 +33,7 @@ $ docker-compose up -d
 
 ## containerへ入る
 ```
-# root
+# log in to app as root
 $ docker-compose exec app bash
 ```
 
@@ -49,27 +49,48 @@ $ docker-compose --verbose up
 | --- |---|---|
  ruby|2.5.1||
 | rails |5.2.0||
+| mysql |5.7.22||
 
-# 使い方
+# 構築方法
 ```
 # create images
 $ cd dockerfile/
 $ ./build_all.sh
 
-# create container
+# create container run backgroud
 $ docker-compose up -d
 
-# serverへ入る
-$ docker-compose exec app bash
-
-# start server
+# bundle install 
+$ docker-compose exec --user book app bash
 $ bundle install --path vendor/bundle
+
+# db migrate
+$ bundle exec rake db:create
+$ bundle exec rake db:migrate
+```
+
+# 使い方
+## webサーバーへ入る
+```
+$ docker-compose exec app bash
+# log in as book user
+$ docker-compose exec --user book app bash
+```
+
+## start web server
+```
 $ bundle exec rails s -b 0.0.0.0 -p 3010
 ```
 
+## connect db server
+```
+$ docker-compose exec db bash
+```
+
+## access page
+* http://localhost:3010/
+
 # TODO
-1. bookユーザーでサーバーへ入る
-1. add mysql server
 1. appを分離する
 
 # 参考

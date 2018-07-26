@@ -2,9 +2,22 @@ version: '3'
 
 services:
   app:
+    environment:
+      RAILS_DATABASE_HOST: db
+
     image: book/book:base-centos-7_20180531
     volumes:
       - ./:/www/ruby-book:cached
     ports:
       - 3010:3010
     tty: true
+
+  db:
+    image: mysql:5.7.22
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - /Users/yang/docker/mysql/lib:/var/lib/mysql
+      - /Users/yang/docker/mysql/log:/var/log/mysql
+    ports:
+      - 3310:3306

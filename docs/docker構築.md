@@ -62,6 +62,7 @@ $ docker-compose up -d
 
 # bundle install 
 $ docker-compose exec --user book app bash
+$ cd /www/ruby-book/
 $ bundle install --path vendor/bundle
 
 # db migrate
@@ -92,6 +93,10 @@ $ docker-compose exec db bash
 
 # TODO
 1. appを分離する
+ * base, centos and some basic package
+ * app-base base + ruby
+ * app app-base + rails
+1. fileサイズを小さくする
 
 # 参考
 * [Dockerfileとdocker buildで CeontOS7 + システムワイドなrbenv + ruby のコンテナを作る]()https://qiita.com/okahashi117/items/8e021f990e7dbe684e74)

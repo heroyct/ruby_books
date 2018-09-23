@@ -1,0 +1,10 @@
+#!/bin/bash 
+set -e
+DIRNAME=$(dirname "$(pwd)/${0}")
+cd $DIRNAME/..
+COMMAND="docker-compose exec -e COLUMNS=`tput cols` -e LINES=`tput lines`"
+if [ -z "$1" ]; then
+  exec ${COMMAND} app bash
+else
+  exec ${COMMAND} --user $1 app bash
+fi

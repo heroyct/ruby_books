@@ -29,6 +29,8 @@ $ docker run -it book/book:base-centos-7_20180531 /bin/bash
 ```
 # run containers in the background
 $ docker-compose up -d
+
+$ bin/docker_up
 ```
 
 ## containerへ入る
@@ -53,15 +55,15 @@ $ docker-compose --verbose up
 
 # 構築方法
 ```
-# create images
+# build all images
 $ cd dockerfile/
 $ ./build_all.sh
 
 # create container run backgroud
-$ docker-compose up -d
+$ bin/docker_up
 
-# bundle install 
-$ docker-compose exec --user book app bash
+# bundle install
+$ bin/denter book
 $ cd /www/ruby-book/
 $ bundle install --path vendor/bundle
 
@@ -73,9 +75,9 @@ $ bundle exec rake db:migrate
 # 使い方
 ## webサーバーへ入る
 ```
-$ docker-compose exec app bash
+$ bin/denter
 # log in as book user
-$ docker-compose exec --user book app bash
+$ bin/denter book
 ```
 
 ## start web server

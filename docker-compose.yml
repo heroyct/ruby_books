@@ -8,6 +8,9 @@ services:
     image: book/book:base-centos-7_20180531
     volumes:
       - ./:/www/ruby-book:cached
+      - app-bundle:/www/ruby-book/vendor/bundle
+      - app-tmp:/www/ruby-book/tmp
+
     ports:
       - 3010:3010
     tty: true
@@ -17,7 +20,18 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     volumes:
+      - db-data:/var/lib/mysql
+      - db-log:/var/log/mysql
+      - ./dockerfile/mysql/conf/my.cnf:/etc/mysql/conf.d/app.cnf
+
+    volumes:
       - /Users/yang/docker/mysql/lib:/var/lib/mysql
       - /Users/yang/docker/mysql/log:/var/log/mysql
     ports:
       - 3310:3306
+
+volumes:
+  app-bundle:
+  app-tmp:
+  db-data:
+  db-log:

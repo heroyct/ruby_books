@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+set -e
+DIRNAME=$(dirname "$(pwd)/${0}")
+cd $DIRNAME/..
+export USER_ID=${UID}
+
+exec docker-compose -f docker-compose.yml up -d
